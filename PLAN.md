@@ -7,10 +7,13 @@
 ---
 
 ## Phase 1 — Project Setup & Dependencies
-- [ ] Create `requirements.txt`
-- [ ] Create `.env.example` with API key placeholder
-- [ ] Create full folder structure (`src/`, `experiments/`, `results/`, `paper/`)
-- [ ] Verify venv and confirm all packages install cleanly
+- [x] Create `requirements.txt`
+- [x] Create `.env.example` with API key placeholder
+- [x] Create full folder structure (`src/`, `experiments/`, `results/`, `paper/`)
+- [x] Verify venv and confirm all packages install cleanly
+
+> **Note**: Corporate SSL cert required for pip. Always install with:
+> `MSYS_NO_PATHCONV=1 .agentic-ai-final-project-env/Scripts/pip install ... --cert 'C:\Users\karatf1\Documents\SSL\cacert-bundle.crt' --timeout 120`
 
 ## Phase 2 — Grid Environment
 - [ ] `src/environment/grid.py` — NxN grid, static + dynamic obstacles, stochastic motion models
@@ -58,6 +61,6 @@
 ---
 
 ## Current Status
-**Active phase**: None — not started
-**Last completed**: —
-**Next step**: Begin Phase 1
+**Active phase**: Phase 2
+**Last completed**: Phase 1 (all setup, dependencies, folder structure)
+**Next step**: Begin Phase 2 — `src/environment/grid.py`
