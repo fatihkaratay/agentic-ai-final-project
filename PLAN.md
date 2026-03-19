@@ -16,9 +16,9 @@
 > `MSYS_NO_PATHCONV=1 .agentic-ai-final-project-env/Scripts/pip install ... --cert 'C:\Users\karatf1\Documents\SSL\cacert-bundle.crt' --timeout 120`
 
 ## Phase 2 — Grid Environment
-- [ ] `src/environment/grid.py` — NxN grid, static + dynamic obstacles, stochastic motion models
-- [ ] `src/environment/visualizer.py` — render grid with hazard overlay and planned path
-- [ ] Smoke test: grid initializes, obstacles move correctly across steps
+- [x] `src/environment/grid.py` — NxN grid, static + dynamic obstacles, stochastic motion models
+- [x] `src/environment/visualizer.py` — render grid with hazard overlay and planned path
+- [x] Smoke test: grid initializes, obstacles move correctly across steps
 
 ## Phase 3 — Classical Planners (Baselines)
 - [ ] `src/planners/a_star.py` — A* with pluggable cost function (accepts hazard map weights)
@@ -61,6 +61,6 @@
 ---
 
 ## Current Status
-**Active phase**: Phase 2
-**Last completed**: Phase 1 (all setup, dependencies, folder structure)
-**Next step**: Begin Phase 2 — `src/environment/grid.py`
+**Active phase**: Phase 3
+**Last completed**: Phase 2 (grid world, visualizer, 27/27 tests passing)
+**Next step**: Begin Phase 3 — `src/planners/base.py`
