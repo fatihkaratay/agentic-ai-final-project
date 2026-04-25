@@ -12,8 +12,8 @@
 - [x] Create full folder structure (`src/`, `experiments/`, `results/`, `paper/`)
 - [x] Verify venv and confirm all packages install cleanly
 
-> **Note**: Corporate SSL cert required for pip. Always install with:
-> `MSYS_NO_PATHCONV=1 .agentic-ai-final-project-env/Scripts/pip install ... --cert 'C:\Users\karatf1\Documents\SSL\cacert-bundle.crt' --timeout 120`
+> **Environment**: Virtualenv lives at `.venv/`. Activate with `source .venv/bin/activate` or invoke binaries directly via `.venv/bin/python` / `.venv/bin/pytest`.
+> **Scope**: Targeting class MVP (A* + D* Lite, 4 variants, 20×20, 50 sequential episodes). Conference extension (LPA*, Agent-NoMemory, 200 i.i.d. episodes, 50×50, Cohen's κ rating) is deferred.
 
 ## Phase 2 — Grid Environment
 - [x] `src/environment/grid.py` — NxN grid, static + dynamic obstacles, stochastic motion models
@@ -21,10 +21,12 @@
 - [x] Smoke test: grid initializes, obstacles move correctly across steps
 
 ## Phase 3 — Classical Planners (Baselines)
+- [ ] `src/planners/base.py` — shared logging interface (all variants produce identical output format)
 - [ ] `src/planners/a_star.py` — A* with pluggable cost function (accepts hazard map weights)
 - [ ] `src/planners/d_star_lite.py` — D* Lite with incremental replanning on obstacle detection
-- [ ] `src/planners/base.py` — shared logging interface (all variants produce identical output format)
 - [ ] Smoke test: A* finds correct path on static grid; D* Lite replans when obstacle appears
+
+> LPA* is conference-only (deferred).
 
 ## Phase 4 — LangGraph Agent
 - [ ] `src/agent/state.py` — `AgentState` TypedDict schema

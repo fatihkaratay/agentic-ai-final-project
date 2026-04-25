@@ -1,6 +1,6 @@
 """
 Quick demo — renders the grid world and saves it to results/figures/.
-Run: .agentic-ai-final-project-env/Scripts/python demo_grid.py
+Run: .venv/bin/python demo_grid.py
 """
 
 import matplotlib

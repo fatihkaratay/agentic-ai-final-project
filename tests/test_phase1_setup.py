@@ -1,6 +1,6 @@
 """
 Phase 1 Tests — Project Setup & Dependencies
-Run: .agentic-ai-final-project-env/Scripts/pytest tests/test_phase1_setup.py -v
+Run: .venv/bin/pytest tests/test_phase1_setup.py -v
 """
 
 import sys

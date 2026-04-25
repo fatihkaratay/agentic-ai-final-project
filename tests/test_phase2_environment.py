@@ -1,6 +1,6 @@
 """
 Phase 2 Tests — Grid Environment
-Run: .agentic-ai-final-project-env/Scripts/pytest tests/test_phase2_environment.py -v
+Run: .venv/bin/pytest tests/test_phase2_environment.py -v
 """
 
 import os
