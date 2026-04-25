@@ -21,10 +21,10 @@
 - [x] Smoke test: grid initializes, obstacles move correctly across steps
 
 ## Phase 3 — Classical Planners (Baselines)
-- [ ] `src/planners/base.py` — shared logging interface (all variants produce identical output format)
-- [ ] `src/planners/a_star.py` — A* with pluggable cost function (accepts hazard map weights)
-- [ ] `src/planners/d_star_lite.py` — D* Lite with incremental replanning on obstacle detection
-- [ ] Smoke test: A* finds correct path on static grid; D* Lite replans when obstacle appears
+- [x] `src/planners/base.py` — shared logging interface (all variants produce identical output format)
+- [x] `src/planners/a_star.py` — A* with pluggable cost function (accepts hazard map weights)
+- [x] `src/planners/d_star_lite.py` — D* Lite with incremental replanning on obstacle detection
+- [x] Smoke test: A* finds correct path on static grid; D* Lite replans when obstacle appears
 
 > LPA* is conference-only (deferred).
 
@@ -63,6 +63,6 @@
 ---
 
 ## Current Status
-**Active phase**: Phase 3
-**Last completed**: Phase 2 (grid world, visualizer, 27/27 tests passing)
-**Next step**: Begin Phase 3 — `src/planners/base.py`
+**Active phase**: Phase 4
+**Last completed**: Phase 3 (base.py, A*, D* Lite — 18 phase-3 tests; 83 total tests passing)
+**Next step**: Begin Phase 4 — `src/agent/state.py` (AgentState TypedDict)
