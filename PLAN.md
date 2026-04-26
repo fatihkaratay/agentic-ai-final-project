@@ -29,16 +29,16 @@
 > LPA* is conference-only (deferred).
 
 ## Phase 4 — LangGraph Agent
-- [ ] `src/agent/state.py` — `AgentState` TypedDict schema
-- [ ] `src/agent/nodes/scanner.py` — Environment Scanner node
-- [ ] `src/agent/nodes/planner.py` — A* Planner node (wraps Phase 3 planner)
+- [x] `src/agent/state.py` — `AgentState` TypedDict schema
+- [x] `src/agent/nodes/scanner.py` — Environment Scanner node
+- [x] `src/agent/nodes/planner.py` — A* Planner node (wraps Phase 3 planner)
 - [ ] `src/agent/nodes/risk_evaluator.py` — LLM-backed Path Risk Evaluator node
-- [ ] `src/agent/nodes/memory_manager.py` — Episodic Memory Manager node
+- [x] `src/agent/nodes/memory_manager.py` — Episodic Memory Manager node
 - [ ] `src/agent/nodes/path_healer.py` — Path Healer node
-- [ ] `src/agent/nodes/execution_monitor.py` — Execution Monitor node
+- [x] `src/agent/nodes/execution_monitor.py` — Execution Monitor node
 - [ ] `src/agent/nodes/reflection.py` — Reflection Node
 - [ ] `src/agent/graph.py` — wire StateGraph with conditional edges
-- [ ] `src/memory/store.py` — JSON-backed episodic store (read/write utilities)
+- [x] `src/memory/store.py` — JSON-backed episodic store (read/write utilities)
 - [ ] Smoke test: Full Agent runs one episode end-to-end and produces a JSON log
 
 ## Phase 5 — Experiment Runner & Evaluation
