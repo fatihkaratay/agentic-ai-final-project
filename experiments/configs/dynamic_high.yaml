@@ -1,0 +1,10 @@
+# Dynamic-High — fast random walk (every step). High uncertainty.
+# Density relaxed from proposal's 0.25 → 0.20 because we don't implement
+# the proposal's "periodic spawning" — without it, 25% routinely produces
+# no-path episodes that don't actually exercise the agent's adaptive logic.
+name: dynamic_high
+size: 20
+obstacle_density: 0.20
+dynamic_ratio: 0.5
+motion_model: random_walk
+motion_speed: 1.0

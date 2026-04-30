@@ -32,37 +32,37 @@
 - [x] `src/agent/state.py` — `AgentState` TypedDict schema
 - [x] `src/agent/nodes/scanner.py` — Environment Scanner node
 - [x] `src/agent/nodes/planner.py` — A* Planner node (wraps Phase 3 planner)
-- [ ] `src/agent/nodes/risk_evaluator.py` — LLM-backed Path Risk Evaluator node
+- [x] `src/agent/nodes/risk_evaluator.py` — LLM-backed Path Risk Evaluator node
 - [x] `src/agent/nodes/memory_manager.py` — Episodic Memory Manager node
-- [ ] `src/agent/nodes/path_healer.py` — Path Healer node
+- [x] `src/agent/nodes/path_healer.py` — Path Healer node
 - [x] `src/agent/nodes/execution_monitor.py` — Execution Monitor node
-- [ ] `src/agent/nodes/reflection.py` — Reflection Node
-- [ ] `src/agent/graph.py` — wire StateGraph with conditional edges
+- [x] `src/agent/nodes/reflection.py` — Reflection Node
+- [x] `src/agent/graph.py` — wire StateGraph with conditional edges
 - [x] `src/memory/store.py` — JSON-backed episodic store (read/write utilities)
-- [ ] Smoke test: Full Agent runs one episode end-to-end and produces a JSON log
+- [x] Smoke test: Full Agent runs one episode end-to-end and produces a JSON log
 
 ## Phase 5 — Experiment Runner & Evaluation
-- [ ] `experiments/configs/static.yaml` — Static environment config
-- [ ] `experiments/configs/dynamic_low.yaml` — Dynamic-Low config
-- [ ] `experiments/configs/dynamic_high.yaml` — Dynamic-High config
-- [ ] `experiments/run_experiments.py` — seed-controlled runner for all variants
-- [ ] Metric collection: SR, PER, CR, MRC, DL, MHR, token cost per episode
-- [ ] `results/figures/` — generate all 7 required plots
-  - [ ] Fig 1: LangGraph node architecture diagram
-  - [ ] Fig 2: Agent reasoning pipeline / data flow
-  - [ ] Fig 3: Grid world visualization with hazard overlay
-  - [ ] Fig 4: Success rate by variant and condition (grouped bar chart)
-  - [ ] Fig 5: Episode-over-episode learning curve
-  - [ ] Fig 6: Cost-quality scatter (latency vs. SR)
-  - [ ] Fig 7: Sample LLM justification text box
+- [x] `experiments/configs/static.yaml` — Static environment config
+- [x] `experiments/configs/dynamic_low.yaml` — Dynamic-Low config
+- [x] `experiments/configs/dynamic_high.yaml` — Dynamic-High config
+- [x] `experiments/run_experiments.py` — seed-controlled runner for all variants
+- [x] Metric collection: SR, PER, CR, MRC, DL, MHR, token cost per episode
+- [x] `results/figures/` — generate all 7 required plots
+  - [x] Fig 1: LangGraph node architecture diagram
+  - [x] Fig 2: Agent reasoning pipeline / data flow
+  - [x] Fig 3: Grid world visualization with hazard overlay
+  - [x] Fig 4: Success rate by variant and condition (grouped bar chart)
+  - [x] Fig 5: Episode-over-episode learning curve
+  - [x] Fig 6: Cost-quality scatter (latency vs. SR)
+  - [x] Fig 7: Sample LLM justification text box
 
 ## Phase 6 — Paper & README
-- [ ] `README.md` — setup instructions, venv activation, example run commands
-- [ ] `PAPER.md` — full 8-section paper draft
+- [x] `README.md` — setup instructions, venv activation, example run commands
+- [x] `PAPER.md` — full 8-section paper draft
 
 ---
 
 ## Current Status
-**Active phase**: Phase 4
-**Last completed**: Phase 3 (base.py, A*, D* Lite — 18 phase-3 tests; 83 total tests passing)
-**Next step**: Begin Phase 4 — `src/agent/state.py` (AgentState TypedDict)
+**Active phase**: ✅ All phases complete
+**Last completed**: Phase 6 — README.md, PAPER.md (8 sections), all 7 figures, 83/83 tests passing
+**Next step**: Final review / submission. PDF export of PAPER.md (e.g. via Pandoc or your editor) for Canvas upload.

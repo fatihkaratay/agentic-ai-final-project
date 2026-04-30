@@ -27,6 +27,13 @@ from typing import Any, Dict
 from src.agent.state import AgentState, EpisodeStatus
 
 
+# Allow this many consecutive empty-path cycles before declaring timeout.
+# Each cycle advances the world (grid.step), giving dynamic obstacles a chance
+# to clear the start area. The graph will route stuck → planner for a replan
+# attempt before EM is called again.
+MAX_STUCK_CYCLES = 8
+
+
 def execution_monitor_node(state: AgentState) -> Dict[str, Any]:
     grid          = state["grid"]
     current_pos   = state["current_pos"]
@@ -76,6 +83,9 @@ def execution_monitor_node(state: AgentState) -> Dict[str, Any]:
     grid.step()
     grid.agent_pos = list(new_pos)   # keep visualizer mirror in sync
 
+    # Track consecutive empty-path cycles; reset on any successful move.
+    new_stuck = state.get("stuck_count", 0) + 1 if action == "stuck" else 0
+
     # ── 4. Terminal status against post-step grid ────────────────────────
     status: EpisodeStatus
     if new_pos == goal:
@@ -84,24 +94,26 @@ def execution_monitor_node(state: AgentState) -> Dict[str, Any]:
         status = "collision"
     elif new_step >= max_steps:
         status = "timeout"
-    elif action == "stuck":
+    elif action == "stuck" and new_stuck >= MAX_STUCK_CYCLES:
         status = "timeout"
     else:
         status = "running"
 
     log_entry = {
-        "step":   new_step,
-        "node":   "execution_monitor",
-        "action": action,
-        "from":   list(current_pos),
-        "to":     list(new_pos),
-        "status": status,
+        "step":        new_step,
+        "node":        "execution_monitor",
+        "action":      action,
+        "from":        list(current_pos),
+        "to":          list(new_pos),
+        "status":      status,
+        "stuck_count": new_stuck,
     }
 
     return {
         "current_pos":       new_pos,
         "planned_path":      new_planned_path,
         "step_count":        new_step,
+        "stuck_count":       new_stuck,
         "obstacle_detected": (action == "blocked"),
         "episode_status":    status,
         "episode_log":       log + [log_entry],

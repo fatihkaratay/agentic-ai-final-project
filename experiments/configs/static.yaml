@@ -1,0 +1,7 @@
+# Static — baseline. A* should achieve near-perfect performance.
+name: static
+size: 20
+obstacle_density: 0.15
+dynamic_ratio: 0.0
+motion_model: static
+motion_speed: 1.0

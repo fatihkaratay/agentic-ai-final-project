@@ -208,3 +208,4 @@ __marimo__/
 
 .agentic-ai-final-project-env/
 .claude/
+*.jsonl

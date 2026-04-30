@@ -58,6 +58,8 @@ class AgentState(TypedDict, total=False):
 
     # ── Cost & logging ────────────────────────────────────────────────────
     replan_count:  int
+    heal_count:    int                       # times the Path Healer modified the cost map
+    stuck_count:   int                       # consecutive EM cycles with no usable path
     episode_log:   List[Dict[str, Any]]     # ordered, timestamped decision records
     episode_id:    str                       # set by the experiment runner per episode
 
@@ -117,6 +119,8 @@ def init_state(
         obstacle_detected  = False,
         episode_status     = "running",
         replan_count       = 0,
+        heal_count         = 0,
+        stuck_count        = 0,
         episode_log        = [],
         episode_id         = "",
         reflection_summary = "",

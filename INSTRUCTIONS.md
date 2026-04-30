@@ -239,7 +239,7 @@ To isolate the contribution of each agentic component, four variants will be com
 #### Evaluation Protocol
 
 - All variants run on identical episode seeds for fair comparison.
-- The LLM used for the Path Risk Evaluator and Reflection Node will be fixed (e.g., `claude-haiku-4-5` for cost efficiency) across all agent variants.
+- The LLM used for the Path Risk Evaluator and Reflection Node will be fixed (`gpt-4o-mini` via the OpenAI API for cost efficiency) across all agent variants.
 - API call counts and token usage will be logged per episode to quantify computational overhead.
 
 ---
@@ -274,7 +274,7 @@ Statistical significance will be assessed using two-proportion z-tests (for SR/C
 #### Phase 2 — LangGraph Agent Scaffold
 
 - Set up the LangGraph `StateGraph` with the `AgentState` schema.
-- Implement the `Environment Scanner`, `A\* Planner`, and `Path Risk Evaluator` nodes (LLM integration via Anthropic API).
+- Implement the `Environment Scanner`, `A\* Planner`, and `Path Risk Evaluator` nodes (LLM integration via OpenAI API).
 - Wire conditional edges for the risk threshold decision.
 - Implement the `Path Healer` with waypoint detour logic.
 - **Deliverable**: Agent-NoMemory variant functional on Dynamic-Low environments.
@@ -310,7 +310,7 @@ Statistical significance will be assessed using two-proportion z-tests (for SR/C
 | Component            | Technology                                                     |
 | -------------------- | -------------------------------------------------------------- |
 | Agent Orchestration  | LangGraph (Python)                                             |
-| LLM Backend          | Anthropic API (`claude-haiku-4-5` for evaluator/reflector)     |
+| LLM Backend          | OpenAI API (`gpt-4o-mini` for evaluator/reflector)             |
 | Grid Environment     | NumPy + custom Python simulation                               |
 | A\* Implementation   | Custom Python (networkx optional)                              |
 | Memory Store         | JSON log (Phase 3); optionally ChromaDB for semantic retrieval |
@@ -327,7 +327,7 @@ Statistical significance will be assessed using two-proportion z-tests (for SR/C
 - The system's LLM component introduces **non-determinism**: the same grid state may yield different risk assessments across runs, which is worth analyzing as a form of bounded rationality rather than a flaw.
 - **Interpretability**: The natural-language justifications produced by the Path Risk Evaluator and Reflection Node are a core artifact — they provide a human-readable audit trail of agent decisions, addressing the "black box" criticism of LLM-based agents.
 - **Scope Limitation**: This system is a simulation study. Before applying similar agentic oversight to real-world robotics or autonomous vehicles, significantly more rigorous safety validation would be required.
-- **Cost Awareness**: LLM API calls carry financial and latency costs. The design intentionally gates LLM invocation behind risk thresholds and uses a lightweight model (`haiku`) to make the overhead tractable at simulation scale.
+- **Cost Awareness**: LLM API calls carry financial and latency costs. The design intentionally gates LLM invocation behind risk thresholds and uses a lightweight model (`gpt-4o-mini`) to make the overhead tractable at simulation scale.
 
 #### Anticipated Challenges
 
